@@ -1,0 +1,363 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="./js/dashboard.js"></script>
+<link rel="stylesheet" href="./css/dashboard.css">
+<link rel="stylesheet" href="./css/profile.css">
+<link rel="stylesheet" href="./css/loading.css">
+<link rel="shortcut icon" href="./images/bank.png" type="image/x-icon">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<title>Dashboard</title>
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                <div class="logo">
+                    <a hef="home.html"><img src="./images/footerimg.png" alt="Bank" class="hidden-xs hidden-sm" style="width: 200px;">
+                        <img src="./images/icon1.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
+                    </a>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <li><a href="Dashboard.html"><i class="fa fa-home" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li><a href="Account.html"><i class="fa fa-tasks" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Account</span></a></li>
+                        <li class="active"><a href="profile.html"><i class="fa fa-user" aria-hidden="true" style="color: #86E063;"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+                        <li><a href="setting.html"><i class="fa fa-cog" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
+                        <li><a href="#" onclick="removeCookie('Sesh_uuid'); window.location.href='/'"><i class="fas fa-sign-out-alt" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
+                <div class="row">
+                    <header>
+                        <div class="col-md-7">
+                            <nav class="navbar-default pull-left">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                            </nav>
+                            <div class="search hidden-xs hidden-sm">
+                                <h1 style="font-weight: bold;">Dashboard</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="header-rightside">
+                                <ul class="list-inline header-top pull-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://cdn-icons-png.flaticon.com/512/417/417777.png" alt="user" style="width: 80px;">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="user-dashboard" style="margin: 20px;">
+                    <div class="main">
+                        <h2>IDENTITY</h2>
+                        <div class="card">
+                            <div class="card-body">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>First Name</td>
+                                            <td>:</td>
+                                            <td>
+                                              <div class="form-outline">
+                                                <input type="text" id="fname" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Last Name</td>
+                                            <td>:</td>
+                                            <td>
+                                              <div class="form-outline">
+                                                <input type="text" id="lname" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone No</td>
+                                            <td>:</td>
+                                            <td>
+                                              <div class="form-outline">
+                                                <input type="text" id="phone" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Social Security No</td>
+                                            <td>:</td>
+                                            <td>
+                                              <div class="form-outline">
+                                                <input type="text" id="ssn" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                              </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>:</td>
+                                            <td>
+                                                <div class="form-outline">
+                                                    <input type="text" id="address" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                                  </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>:</td>
+                                            <td>
+                                                <div class="form-outline">
+                                                    <input type="email" id="email" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                                  </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Acc No</td>
+                                            <td>:</td>
+                                            <td>
+                                                <div class="form-outline">
+                                                    <input type="text" id="acc" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                                  </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Account Type</td>
+                                            <td>:</td>
+                                            <td>
+                                                <div class="form-outline">
+                                                    <input type="text" id="accType" class="form-control" readonly style="margin-bottom: 5px;"/>
+                                                  </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <center><button type="button" class="btn btn-primary" style="margin-top: 15px;" data-toggle="modal" data-target="#exampleModal" style="background-color: #006747;">Update Profile</button></center>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End -->
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                           <form >
+                                <div class="modal-body">
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="typePasswordX-2">First Name</label>
+                                        <input type="text" id="upfname" class="form-control form-control-lg" required/>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="typePasswordX-2">Last Name</label>
+                                        <input type="text" id="uplname" class="form-control form-control-lg" required/>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="typePasswordX-2">Phone No</label>
+                                        <input type="text" id="upphone" class="form-control form-control-lg" required/>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="typePasswordX-2">Social Security No</label>
+                                        <input type="text" id="upssn" class="form-control form-control-lg" required/>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="typePasswordX-2">Address</label>
+                                        <input type="text" id="upaddress" class="form-control form-control-lg" required/>
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label" for="typePasswordX-2">Email</label>
+                                        <input type="text" id="upemail" class="form-control form-control-lg" required/>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" id="reg-button" onclick="handleSubmit()">Update</button>
+                                </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        <script>
+            // Get cookies values
+            const uuid = getCookie("Sesh_uuid");
+            Checker();
+            getProfile();
+            
+            // Load page while data is fetching
+            function showLoader() {
+                const loader = document.createElement("div");
+                loader.className = "loader";
+                document.body.appendChild(loader);
+            }
+
+            // Remove Loader when data fetched
+            function removeLoader() {
+                const loader = document.querySelector(".loader");
+                if (loader) {
+                    loader.remove();
+                }
+            }
+
+            // Get Cookies values
+            function getCookie(name) {
+                const cookies = document.cookie;
+                const cookieArray = cookies.split('; ');
+                for (const cookie of cookieArray) {
+                    const [cookieName, cookieValue] = cookie.split('=');
+                    if (cookieName === name) {
+                    return cookieValue;
+                    }
+                }
+                return null;
+            }
+
+            // Get Profile Data
+            function getProfile() {
+                const url = `http://localhost:4000/api/getProfile?uuid=${uuid}`;
+
+                const headers = {
+                    'Content-Type': 'application/json',
+                };
+
+                fetch(url, {
+                    method: 'GET',
+                    headers: headers,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                       document.getElementById("fname").value=data.data[0].fname;
+                       document.getElementById("lname").value=data.data[0].lname;
+                       document.getElementById("address").value=data.data[0].address;
+                       document.getElementById("ssn").value=data.data[0].socialno;
+                       document.getElementById("phone").value=data.data[0].phoneno;
+                       document.getElementById("email").value=data.data[0].email;
+                       document.getElementById("acc").value=data.data[0].AccountNo;
+                       document.getElementById("accType").value=data.data[0].accountType;
+                       document.getElementById("upfname").value=data.data[0].fname;
+                       document.getElementById("uplname").value=data.data[0].lname;
+                       document.getElementById("upaddress").value=data.data[0].address;
+                       document.getElementById("upssn").value=data.data[0].socialno;
+                       document.getElementById("upphone").value=data.data[0].phoneno;
+                       document.getElementById("upemail").value=data.data[0].email;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            }
+
+            // Check wether user valid or not 
+            function Checker() {
+                const url = 'http://localhost:4000/api/authentication';
+
+                const data = {
+                    uuid: uuid,
+                };
+
+                const requestBody = JSON.stringify(data);
+                const headers = {
+                    'Content-Type': 'application/json',
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: headers,
+                    body: requestBody,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        removeLoader(); 
+
+                        if (data.message === "invalid") {
+                            window.location.href = "/Login.html";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+
+                // Convert hex to text
+            function hexToText(hex) {
+            let text = '';
+            for (let i = 0; i < hex.length; i += 2) {
+                const hexPair = hex.substr(i, 2);
+                const charCode = parseInt(hexPair, 16);
+                text += String.fromCharCode(charCode);
+            }
+            return text;
+           }
+
+
+        //    Submit the form
+           function handleSubmit() {
+            const fname=document.getElementById("upfname").value;
+            const lname=document.getElementById("uplname").value;
+            const address=document.getElementById("upaddress").value;
+            const ssn=document.getElementById("upssn").value;
+            const phone=document.getElementById("upphone").value;
+            const email=document.getElementById("upemail").value;
+
+            if(fname=="" || lname=="" || address=="" || address=="" || ssn=="" || phone=="" || email==""){
+              alert("Give Complete details");
+            }
+            else{
+                document.getElementById("reg-button").innerHTML="Updating...";
+                document.getElementById("reg-button").disabled=true;
+                // Replace this with your API endpoint
+                const url = 'http://localhost:4000/api/updateProfile';
+
+                const data = {
+                    fname: fname,
+                    lname: lname,
+                    address:address,
+                    ssn:ssn,
+                    phone:phone,
+                    email:email,
+                    uuid:hexToText(uuid),
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === "updated") {
+                        window.location.href="/profile.html";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Failed to update profile");
+                });
+                }
+        }
+
+        // Remove cookies value
+        function removeCookie(name) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+        </script>
+    </div>
+</body>

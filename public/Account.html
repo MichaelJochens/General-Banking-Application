@@ -1,0 +1,371 @@
+<!-- External links -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="./js/dashboard.js"></script>
+<link rel="stylesheet" href="./css/dashboard.css">
+<link rel="shortcut icon" href="./images/bank.png" type="image/x-icon">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<!-- Page Title -->
+<title>Dashboard</title>
+
+<!-- HTML Body -->
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                <div class="logo">
+                    <!-- Logo -->
+                    <a href="home.html"><img src="./images/footerimg.png" alt="Bank" class="hidden-xs hidden-sm" style="width: 200px;">
+                        <img src="./images/footerimg.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
+                    </a>
+                </div>
+                <div class="navi">
+                    <ul>
+                        <!-- Sidebar -->
+                        <li><a href="Dashboard.html"><i class="fa fa-home" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li class="active"><a href="Account.html"><i class="fa fa-tasks" aria-hidden="true" style="color: #86E063;"></i><span class="hidden-xs hidden-sm">Account</span></a></li>
+                        <li><a href="profile.html"><i class="fa fa-user" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+                        <li><a href="setting.html"><i class="fa fa-cog" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
+                        <li><a href="#" onclick="removeCookie('Sesh_uuid'); window.location.href='/'"><i class="fas fa-sign-out-alt" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!-- Toggle for mobile view -->
+                <div class="row">
+                    <header>
+                        <div class="col-md-7">
+                            <nav class="navbar-default pull-left">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                            </nav>
+                            <div class="search hidden-xs hidden-sm">
+                                <h1 style="font-weight: bold;">Dashboard</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="header-rightside">
+                                <ul class="list-inline header-top pull-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://cdn-icons-png.flaticon.com/512/417/417777.png" alt="user" style="width: 80px;">        
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="user-dashboard" style="padding: 20px;">
+                    <div class="card" style="background-color: #e6e6e4;padding: 30px;border-radius: 12px;">
+                        <div class="card-body">
+                            <h4 style="color: #30ab00;">Account Details</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div style="background-color: #ebeace; padding: 10px;border-radius: 15px;">
+                                        <h3 style="color: black;" id="atype"></h3>
+                                        <p style="color: black;font-size: 20px;" id="balance">$ 0</p>
+                                        <p style="font-size: 20px;" id="accno"></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background-color: #30AB00;">Transaction</button>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+
+                    <div class="table-container">
+                        <!-- Table data -->
+                        <table class="table table-hover text-nowrap" style="margin-top: 15px;width: 100%;">
+                          <thead style="background-color: #30AB00;color: white;">
+                            <tr style="font-size: 15px;">
+                              <th scope="col">Sr</th>
+                              <th scope="col">From Account</th>
+                              <th scope="col">To Account</th>
+                              <th scope="col">Vendor Name</th>
+                              <th scope="col">Transaction Type</th>
+                              <th scope="col">Dated</th>
+                              <th scope="col">Amount</th>
+                            </tr>
+                          </thead>
+                          <tbody id="data">
+                          </tbody>
+                        </table>
+                      </div>
+                    <div class="row">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Slied -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Transaction</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="typePasswordX-2">Account Number</label>
+                        <input type="text" id="accountno" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="typePasswordX-2">Routing Number</label>
+                        <input type="number" id="Rno" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="typePasswordX-2">Amount</label>
+                        <input type="number" id="amount" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="typePasswordX-2">Your Password</label>
+                        <input type="password" id="password" class="form-control form-control-lg" required/>
+                    </div>
+
+                    <span id="error"></span>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" id="reg-btn" onclick="handleSubmit()">Pay</button>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        let Mybalance=0;
+        let MyAccountType="";
+        // Getting Cookies value
+        const uuid = getCookie("Sesh_uuid");
+            Checker();
+            getTransactions();
+            
+            // Load page while data is fetching
+            function showLoader() {
+                const loader = document.createElement("div");
+                loader.className = "loader";
+                document.body.appendChild(loader);
+            }
+
+            // Remoce loader when data fetched
+            function removeLoader() {
+                const loader = document.querySelector(".loader");
+                if (loader) {
+                    loader.remove();
+                }
+            }
+
+            // Get Cookies value
+            function getCookie(name) {
+                const cookies = document.cookie;
+                const cookieArray = cookies.split('; ');
+                for (const cookie of cookieArray) {
+                    const [cookieName, cookieValue] = cookie.split('=');
+                    if (cookieName === name) {
+                    return cookieValue;
+                    }
+                }
+                return null;
+            }
+
+            // Check if user is valid or not
+            function Checker() {
+                const url = 'http://localhost:4000/api/authentication';
+
+                const data = {
+                    uuid: uuid,
+                };
+
+                const requestBody = JSON.stringify(data);
+                const headers = {
+                    'Content-Type': 'application/json',
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: headers,
+                    body: requestBody,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        removeLoader(); 
+
+                        if (data.message === "invalid") {
+                            window.location.href = "/Login.html";
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+
+                // Get Transaction data
+                function getTransactions() {
+                    const url = `http://localhost:4000/api/gettransaction?userid=${uuid}`;
+                    let text="";
+                    let count=0;
+                    let amount=0;
+                    const headers = {
+                        'Content-Type': 'application/json',
+                    };
+
+                    fetch(url, {
+                        method: 'GET',
+                        headers: headers,
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            let debit=0;
+                            let credit=0;
+                            Mybalance=parseInt(data.balance);
+                            MyAccountType=data.accountType;
+                            document.getElementById("atype").innerHTML='Current Account: '+data.accountType;
+                            document.getElementById("balance").innerHTML= '$ '+data.balance;
+                            document.getElementById("accno").innerHTML= '**** **** **** '+data.from.slice(-4);
+                            data.data.forEach(element => {
+                                count+=1;
+                                if(element.from_account==data.from_account){
+                                    debit=debit+element.amount;
+                                }
+                                else{
+                                    credit=credit+element.amount;
+                                }
+                                text+=`
+                                <tr>
+                                    <th scope="row">${count}</th>
+                                    <td>${element.from_account}</td>
+                                    <td>${element.to_account}</td>
+                                    <td>${element.name}</td>
+                                    <td>${element.purpose==0?"Transfer":element.purpose}</td>
+                                    <td>${new Date(element.dated).toLocaleString()}</td>
+                                    <td>$${element.amount}</td>
+                                </tr>
+                                `;
+                            });
+                            document.getElementById("data").innerHTML=text;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                }
+
+                // Convert hex to string
+            function hexToText(hex) {
+            let text = '';
+            for (let i = 0; i < hex.length; i += 2) {
+                const hexPair = hex.substr(i, 2);
+                const charCode = parseInt(hexPair, 16);
+                text += String.fromCharCode(charCode);
+            }
+            return text;
+           }
+
+           document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                console.log("hello");
+                handleSubmit(event); 
+            });
+        })
+
+
+        //    Submit the form data
+           const handleSubmit=()=>{
+            event.preventDefault();
+            const accountno=document.getElementById("accountno").value;
+            const amount=document.getElementById("amount").value;
+            const password=document.getElementById("password").value;
+            const Rno=document.getElementById("Rno").value;
+            if(accountno=="" || amount==""){
+                alert("Give Compelte details");
+            }
+            else{
+                if(Mybalance-amount<0){
+                    document.getElementById("error").innerHTML="Your balance is not enough";
+                    document.getElementById("error").style.color="red";
+                    document.getElementById("error").style.display="block";
+                }
+                else{
+                    console.log(MyAccountType,Rno,typeof(Rno));
+                    if((MyAccountType=="Checking" && Rno=="081000032") || (MyAccountType=="Savings" && Rno=="081000033")){
+                        document.getElementById("reg-btn").disabled=true;
+                        document.getElementById("reg-btn").innerHTML="Transfering..";
+                        const url = 'http://localhost:4000/api/transaction';
+                        const data = {
+                            accountno: accountno,
+                            amount: amount,
+                            password:password,
+                            uuid:hexToText(uuid),
+                        };
+
+                        const requestBody = JSON.stringify(data);
+                        const headers = {
+                        'Content-Type': 'application/json',
+                        };
+
+                        fetch(url, {
+                        method: 'POST',
+                        headers: headers,
+                        body: requestBody,
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if(data.message=="added"){
+                                window.location.href="/Account.html";
+                            }
+                            else if(data.message=="invalidpass"){
+                                document.getElementById("reg-btn").disabled=false;
+                                document.getElementById("reg-btn").innerHTML="Pay";
+                                document.getElementById("error").innerHTML="WRONG PASSWORD";
+                                document.getElementById("error").style.color="red";
+                                document.getElementById("error").style.display="block";
+                            }
+                            else if(data.message=="invalid"){
+                                document.getElementById("reg-btn").disabled=false;
+                                document.getElementById("reg-btn").innerHTML="Pay";
+                                document.getElementById("error").innerHTML="ACCOUNT NUMBER NOT FOUND";
+                                document.getElementById("error").style.color="red";
+                                document.getElementById("error").style.display="block";
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    }
+                    else{
+                        document.getElementById("error").innerHTML="Invalid Routing Number";
+                        document.getElementById("error").style.color="red";
+                        document.getElementById("error").style.display="block";
+                    }
+                }
+            }
+        }
+
+        // Remove cookies value
+        function removeCookie(name) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        }
+
+    </script>
+</body>

@@ -1,0 +1,159 @@
+<!-- External Links -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="./js/dashboard.js"></script>
+<link rel="stylesheet" href="./css/dashboard.css">
+<link rel="shortcut icon" href="./images/bank.png" type="image/x-icon">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+<title>Dashboard</title>
+<body class="home">
+    <div class="container-fluid display-table">
+        <div class="row display-table-row">
+            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
+                <div class="logo">
+                    <a hef="home.html"><img src="./images/footerimg.png" alt="Bank" class="hidden-xs hidden-sm" style="width: 200px;">
+                        <img src="./images/icon1.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
+                    </a>
+                </div>
+                <!-- Sidebar -->
+                <div class="navi">
+                    <ul>
+                        <li class="active"><a href="Dashboard.html"><i class="fa fa-home" aria-hidden="true" style="color: #86E063;"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+                        <li><a href="Account.html"><i class="fa fa-tasks" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Account</span></a></li>
+                        <li><a href="profile.html"><i class="fa fa-user" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Profile</span></a></li>
+                        <li><a href="setting.html"><i class="fa fa-cog" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
+                        <li><a href="#" onclick="removeCookie('Sesh_uuid'); window.location.href='/'"><i class="fas fa-sign-out-alt" aria-hidden="true" style="color: #006747;"></i><span class="hidden-xs hidden-sm">Logout</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10 col-sm-11 display-table-cell v-align">
+                <!-- Toggle Mobile -->
+                <div class="row">
+                    <header>
+                        <div class="col-md-7">
+                            <nav class="navbar-default pull-left">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                            </nav>
+                            <div class="search hidden-xs hidden-sm">
+                                <h1 style="font-weight: bold;">Dashboard</h1>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="header-rightside">
+                                <ul class="list-inline header-top pull-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="https://cdn-icons-png.flaticon.com/512/417/417777.png" alt="user" style="width: 80px;">
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <!-- Dashbaord -->
+                <div class="user-dashboard">
+                    <h1 id="welcome">Welcome, User</h1>
+                    <div class="row">
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Get Cookies value
+            function getCookie(name) {
+                const cookies = document.cookie;
+                const cookieArray = cookies.split('; ');
+                for (const cookie of cookieArray) {
+                    const [cookieName, cookieValue] = cookie.split('=');
+                    if (cookieName === name) {
+                    return cookieValue;
+                    }
+                }
+                return null;
+            }
+
+            // Show loader while data is fetching
+
+            function showLoader() {
+                const loader = document.createElement("div");
+                loader.className = "loader";
+                document.body.appendChild(loader);
+            }
+
+            // Remove Loader while data is fetching
+            function removeLoader() {
+                const loader = document.querySelector(".loader");
+                if (loader) {
+                    loader.remove();
+                }
+            }
+
+            // Get Cookies values
+            const name = getCookie("Sesh_name");
+            const uuid = getCookie("Sesh_uuid");
+
+            showLoader();
+            Checker();
+
+            // Check user is valid or not
+            function Checker() {
+                const url = 'http://localhost:4000/api/authentication';
+
+                const data = {
+                    uuid: uuid,
+                };
+
+                const requestBody = JSON.stringify(data);
+                const headers = {
+                    'Content-Type': 'application/json',
+                };
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: headers,
+                    body: requestBody,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        removeLoader(); 
+
+                        if (data.message === "invalid") {
+                            window.location.href = "/Login.html";
+                        }
+                        else{
+                            document.getElementById("welcome").innerHTML='Welcome '+hexToText(name);
+                        }
+                    })
+                    .catch(error => {
+                        window.location.href = "/Login.html";
+                        console.error('Error:', error);
+                    });
+                }
+
+        // Convert hex to text
+          function hexToText(hex) {
+            let text = '';
+            for (let i = 0; i < hex.length; i += 2) {
+                const hexPair = hex.substr(i, 2);
+                const charCode = parseInt(hexPair, 16);
+                text += String.fromCharCode(charCode);
+            }
+            return text;
+           }
+
+        //    Remove Cookies
+            function removeCookie(name) {
+                document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            }
+        </script>
+    </div>
+</body>

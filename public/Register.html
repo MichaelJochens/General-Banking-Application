@@ -1,0 +1,162 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/bank.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+    rel="stylesheet"
+    />
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <!-- SCRIPT -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
+    <style>
+        .card-container::-webkit-scrollbar {
+            width: 0.5em;
+        }
+
+        .card-container::-webkit-scrollbar-thumb {
+            background-color: transparent;
+        }
+
+        .card-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+    </style>
+    <title>Commerce Bank</title>
+    </head>
+    <body style="background-color: #f7f9fa;overflow-y: hidden;">
+        <div>
+            <img src="./images/upright.svg" alt="" style="position: absolute;top: -50%;right: 3%;width: 600px;">
+        </div>
+        <div>
+            <img src="./images/lowleft.svg" alt="" style="position: absolute;bottom: -30%;left:-10%;width: 500px;">
+        </div>
+
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5 card-container" style="height: 100vh; overflow-y: auto;">
+                <div class="card shadow-2-strong" style="border-top: 10px solid #006747;">
+                  <div class="card-body p-5 text-center">
+                      <a href="/"><img src="./images/logo.png" alt="" style="width: 300px;"></a>
+                    <h4 class="mb-5" style="margin-top: 10px;text-align: left;color: #75767e;">Create account for Online Banking</h4>
+                    <form onsubmit="handleSubmit(); return false;">
+                    <div class="form-outline mb-4">
+                        <label for="fname" style="color: #64666b; font-weight: bold; display: block;text-align: left;">First Name</label>
+                        <input type="text" id="fname" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="John" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="lname" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Last Name</label>
+                        <input type="text" id="lname" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="Doe" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="lname" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Phone</label>
+                        <input type="text" id="phone" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="Doe" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="social" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Social Security</label>
+                        <input type="text" id="social" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="12345678" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="address" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Address</label>
+                        <input type="text" id="address" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="123 Main St, Cityville" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="email" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Email</label>
+                        <input type="email" id="email" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="john@gmail.com" required/>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <label for="email" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Password</label>
+                        <input type="password" id="password" class="form-control form-control-lg" style="border: 1px solid black;border-radius: 0;" placeholder="*******" required/>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <select class="form-select" aria-label="Default select example" id="accountType" required>
+                          <option selected>Account Type</option>
+                          <option value="Savings">Saving Account</option>
+                          <option value="Checking">Checking Account</option>
+                        </select>
+                      </div>
+
+                    <span id="message"></span>
+        
+                    <button class="btn btn-primary btn-lg btn-block" id="reg-btn" type="submit" style="border-radius: 0;margin-bottom: 20px;">Register</button>
+                  </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </body>
+<script>
+    // Handle form submission
+    const handleSubmit=()=>{
+        event.preventDefault();
+        document.getElementById("reg-btn").disabled=true;
+        document.getElementById("reg-btn").innerHTML="Registering...";
+        const fname=document.getElementById("fname").value;
+        const lname=document.getElementById("lname").value;
+        const phone=document.getElementById("phone").value;
+        const social=document.getElementById("social").value;
+        const address=document.getElementById("address").value;
+        const email=document.getElementById("email").value;
+        const password=document.getElementById("password").value;
+        const account=document.getElementById("accountType").value;
+        const url = 'http://localhost:4000/api/register';
+
+        const data = {
+          fname: fname,
+          lname:lname,
+          phoneno:phone,
+          social:social,
+          address:address,
+          email: email,
+          password:password,
+          account:account,
+        };
+
+        const requestBody = JSON.stringify(data);
+        const headers = {
+          'Content-Type': 'application/json',
+        };
+
+        fetch(url, {
+          method: 'POST',
+          headers: headers,
+          body: requestBody,
+        })
+          .then(response => response.json())
+          .then(data => {
+            if(data.message=="added"){
+              window.location.href=`/verification.html?email=${data.email}&auth=${data.code}`;
+            }
+            else if(data.message=="already"){
+              document.getElementById("reg-btn").disabled=false;
+              document.getElementById("reg-btn").innerHTML="Register";
+              document.getElementById("message").innerHTML="EMAIL ALREADY EXIST";
+              document.getElementById("message").style.color="red";
+              document.getElementById("message").style.display="block";
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }
+</script>
+</html>

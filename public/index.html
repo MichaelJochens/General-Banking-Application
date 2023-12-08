@@ -1,0 +1,464 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/bank.png" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+    rel="stylesheet"
+    />
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.css">
+    <!-- SCRIPT -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+    ></script>
+    <title>Commerce Bank</title>
+</head>
+<body>
+
+    <!-- Navbar Starts -->
+    <nav class="navbar navbar-expand-lg" style="background-color: FAF9F7;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="./images/logo.png" alt="" style="width: 250;margin-left: 15%;padding: 10px;"></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="margin-right: 10%;">
+            <div class="navbar-nav ms-auto"> <!-- Added ms-auto class here -->
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="/Register.html">Register</a>
+              <a class="nav-link" href="/Login.html">Login</a>
+            </div>
+          </div>
+        </div>
+    </nav>    
+    <!-- Navbar Ends -->
+
+    <!-- Main -->
+    <div class="main">
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <center>
+                    <h2 style="color: #006747;font-size: 60px;margin-top: 30%; font-weight: bold;">How can we help you?</h2>
+                </center>
+              </div>
+              <div class="col-md-6">
+                <center>
+                    <div class="card shadow-2-strong logincard col-md-8 offset-md-2 col-12" style="margin: 30px;border-radius: 50%;margin-top: 5%;background-color: #f2f0ed;width: 80%;">
+                        <div class="card-body p-5 text-center" style="margin: 40px;">
+                          <h3 class="mb-5" style="margin-top: 10px;">Log in to Online Banking</h3>
+                          <form onsubmit="handleSubmit(); return false;">
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="mb-3">
+                                      <label for="email" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Your Email</label>
+                                      <input type="email" id="email" class="form-control form-control-lg" style="border: 1px solid black;background-color: #ffffff;" placeholder="john@gmail.com" required/>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col-md-12">
+                                    <div class="mb-3">
+                                      <label for="password" style="color: #64666b; font-weight: bold; display: block;text-align: left;">Your Password</label>
+                                      <input type="password" id="password" class="form-control form-control-lg" style="border: 1px solid black;background-color: #ffffff;" placeholder="********" required/>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <span id="message"></span>
+              
+                          <button class="btn btn-primary btn-lg btn-block" id="reg-btn" type="submit" style="border-radius: 0;background-color: #006747;margin-top: 5px;">Login</button>
+                        </form>
+                        </div>
+                      </div>
+                </center>   
+              </div>
+            </div>
+          </div>    
+          
+          <div class="maincontent" style="padding: 30px;">
+            <center><h2 style="color: #006747;">You have questions, and we have answers.</h2></center>
+            <p style="color: #7d7574;margin-left: 15%;margin-right: 15%;">We know life’s best moments can come with some financial challenges. Whether you’re in-person or on our website, we’re here to help you make informed decisions and get back to what matters most. Visit our blog for easy-to-understand articles on complex topics, from Bitcoin to taxes.</p>
+
+            <div class="row row-cols-1 row-cols-md-4 g-4" style="justify-content: center;">
+                <div class="col">
+                  <div class="card h-100" style="border-bottom: 6px solid #ffd006;">
+                    <img src="./images/blog1.png" class="card-img-top" alt="Skyscrapers"/>
+                    <div class="card-body">
+                      <h5 class="card-title" style="color: #006747;">Single? Even more reason to focus on financial planning.</h5>
+                      <p class="card-text">
+                        Being single can come with unique
+                        savings challenges but focusing on
+                        the right areas can help secure your
+                        financial future. Here's where to
+                        start.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="border-bottom: 6px solid #ffd006;">
+                    <img src="./images/blog2.png" class="card-img-top" alt="Los Angeles Skyscrapers"/>
+                    <div class="card-body">
+                      <h5 class="card-title" style="color: #006747;">What to know about financial benefits and protections for active duty service members.</h5>
+                      <p class="card-text">The last thing men and women in
+                        the armed forces should worry
+                        about as they prepare for active
+                        duty is a cell phone contract, car
+                        lease or tax deadline. That's why
+                        there are federal financial
+                        protections in place, making it
+                        easier for servicemembers to have
+                        peace of mind so they can devote
+                        energy to their mission instead.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="border-bottom: 6px solid #ffd006;">
+                    <img src="./images/blog3.png" class="card-img-top" alt="Palm Springs Road"/>
+                    <div class="card-body">
+                      <h5 class="card-title" style="color: #006747;">Four things college families should know about the simplified FAFSA.</h5>
+                      <p class="card-text">
+                        An easier-to-complete FAFSA is
+                        coming this December, along with
+                        changes to how financial aid is
+                        calculated. While some students
+                        may qualify for more aid, others
+                        may get less. Here's what you need
+                        to know.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="row" style="background-color: #00694a;">
+            <div class="col-md-6">
+                <center>
+                    <div style="margin-top: 10%;color: white;">
+                        <h2>Carry your Commerce banker <br> with you everywhere.</h2>
+                        <p>Get the Commerce Bank CONNECT® app.</p>
+                        <div style="text-align: left;line-height: 8px;margin-left: 21%;padding-top: 20px;">
+                            <p>• Easy to download and use</p>
+                            <p>• Anytime access, right from your phone</p>
+                            <p>• Talk to the same person every time you log in</p>
+                            <p>• Available now in your app store</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" style="background-color: #f2f0ed;border-radius: 0;color: #006747;margin-top: 15px;">Learn More</button>
+                </center>
+            </div>
+            <div class="col-md-6">
+                <img src="./images/connect.png" alt="" style="margin-top: 10px;">
+            </div>
+          </div>
+
+
+          <div style="background-color: #f7f6f5;padding: 20px;padding-top: 5%;">
+            <center><h1 style="color: #006747;">Get to know us.</h1></center>
+            <center><p>Step behind the desk and learn more about the people, culture and values that power Commerce Bank.</p></center>
+            <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center;">
+                <div class="col">
+                  <div class="card h-100" style="border-radius: 0;">
+                    <img src="./images/blog4.png" class="card-img-top" alt="Skyscrapers"style="border-radius:0"/>
+                    <div class="card-body">
+                      <h5 class="card-title" style="color: #006747;">Commerce's new employee
+                        resource group supports
+                        team members with
+                        disabilities and caregivers.</h5>
+                      <p class="card-text">
+                        Creating an everyone feels like
+                        they belong helps them be their best selves at work
+                        and at home. The mission of our new employee
+                        group, ENABLE, is to foster a community where
+                        those with apparent and non-apparent disabilities,
+                        caregivers and allies can be open about their
+                        challenges.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card h-100" style="background: url(./images/cardsback.jpg);border-radius: 0;">
+                    <div class="card-body" style="margin-top: 10%;">
+                      <h3 class="card-title" style="color: #ffb300;">Commerce helped UMKC be
+                        more Agile — and the
+                        outcomes were tremendous.</h3>
+                      <p class="card-text" style="color: white;">Using the Agile methodology was a game-changer
+                        for UMKC. With this approach, our team is helping
+                        nonprofits and groups throughout our communities
+                        work better together to reach their goals.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center;margin-top: 20px;">
+                <div class="col">
+                    <div class="card h-100" style="background: url(./images/back2.jpg);border-radius: 0;">
+                        <div class="card-body" style="margin-top: 10%;">
+                        <h3 class="card-title" style="color: #ffb300;">Commerce's unique program
+                            for aspiring software
+                            developers is hitting major
+                            milestones.</h3>
+                            <p style="color: white;">Our Developer Acceleration Program, or DAP, brings
+                            in talented software developers who are looking to
+                            jumpstart their career. "DAPpers" learn various
+                            aspects of the bank, create innovative technology
+                            solutions, and have fun along the way.</p>
+                        </div>
+                    </div>
+                    </div>
+                <div class="col">
+                <div class="card h-100" style="border-radius: 0;">
+                    <div class="card-body">
+                    <h5 class="card-title" style="color: #006747;">Commerce Bank named as
+                        one of the Best Companies to
+                        Work for in the Banks
+                        Industry by U.S. News &
+                        World Report.</h5>
+                    <p class="card-text">
+                        We're thrilled to share we've been recognized as
+                        one of the "Best Companies to Work For in the
+                        Banks Industry" by U.S. News & World Report. This is
+                        a testament to our commitment to providing a
+                        healthy work/ life balance for our team members,
+                        along with supporting their personal well-being and
+                        professional growth.
+                    </p>
+                    </div>
+                    <img src="./images/blog5.png" class="card-img-top" alt="Skyscrapers"style="border-radius:0"/>
+                </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="row" style="background-color: 007AA3;margin-top: 15px;">
+                <div class="col-md-6">
+                    <center>
+                        <div style="margin-top: 10%;color: white;">
+                            <h2>We're here when you need us.</h2>
+                            <p>We may be nearly 160 years old, but we're always working
+                                to best support our <br> customers' needs. We're here to help
+                                you bank where, when and how you'd like — <br> whether
+                                that's online, on mobile, over the phone, or in person.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary" style="background-color: #006747;border-radius: 0;color: white;margin-top: 15px;">Find a branch or Location</button>
+                        <button type="button" class="btn btn-primary" style="background-color: #f2f0ed;border-radius: 0;color: #006747;margin-top: 15px;">Learn More</button>
+                    </center>
+                </div>
+                <div class="col-md-6">
+                    <img src="./images/feature.png" alt="">
+                </div>
+              </div>
+
+              <div style="background-color: #f2f0ed;padding: 30px;">
+                <h6 style="color: grey;">Disclosure:</h6>
+                <p>To send an email that contains confidential information, please visit the Secure Message Center where there are additional instructions about whether to use Secure Email or Online Banking messaging.</p>
+                <p>To view or print a PDF file, Adobe® Reader® 9.5 or above is recommended. <a href="https://get.adobe.com/reader/" style="color: #329abe;">Download the latest version.</a></p>
+              </div>
+
+
+              <!-- Footer -->
+                <footer class="text-center text-lg-start" style="background-color: #006747;color: white;">
+                    <section class="" style="padding: 20px;">
+                    <div class="container text-center text-md-start mt-5">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                            <!-- Content -->
+                            <h6 class="text-uppercase fw-bold mb-4">
+                            <img src="./images/footerimg.png" alt="" style="width: 240px;">
+                            </h6>
+                            <div class="d-flex">
+                                <a href="" class="me-4 text-reset d-flex align-items-center justify-content-center" style="background-color: #4fa800; padding: 10px; border-radius: 50%;">
+                                  <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="" class="me-4 text-reset d-flex align-items-center justify-content-center" style="background-color: #4fa800; padding: 10px; border-radius: 50%;">
+                                  <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="" class="me-4 text-reset d-flex align-items-center justify-content-center" style="background-color: #4fa800; padding: 10px; border-radius: 50%;">
+                                  <i class="fab fa-google"></i>
+                                </a>
+                                <a href="" class="me-4 text-reset d-flex align-items-center justify-content-center" style="background-color: #4fa800; padding: 10px; border-radius: 50%;">
+                                  <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="" class="me-4 text-reset d-flex align-items-center justify-content-center" style="background-color: #4fa800; padding: 10px; border-radius: 50%;">
+                                  <i class="fab fa-linkedin"></i>
+                                </a>
+                              </div>
+                              
+                              <div style="padding-top: 10px;">
+                                <a href="https://www.commercebank.com/security-center/privacy-statement" style="color: white;text-decoration: underline;">Privacy Statement </a> | <a href="https://www.commercebank.com/online-privacy-policy" style="color: white;text-decoration: underline;">Online Privacy Policy & Terms of Conditions </a> | <a href="https://www.commercebank.com/en-espanol" style="color: white;text-decoration: underline;">En Espanol</a> 
+                              </div>
+
+                              <center><img src="./images/lender.svg" alt="" style="margin-top: 20px;width: 150px;"></center>
+                        </div>
+                        <!-- Grid column -->
+                
+                        <!-- Grid column -->
+                        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4" style="padding-bottom: 7px;border-bottom: 5px solid #78be20;">
+                            About Us
+                            </h6>
+                            <p>
+                            <a href="https://www.commercebank.com/about-us" class="text-reset">About Us Overview</a>
+                            </p>
+                            <p>
+                            <a href="https://www.commercebank.com/about-us/corporate-social-responsibility" class="text-reset">Corporate Social Responsibility</a>
+                            </p>
+                            <p>
+                            <a href="https://investor.commercebank.com/" class="text-reset">Investors Relations</a>
+                            </p>
+                            <p>
+                            <a href="https://www.commercebank.com/about-us/media-center" class="text-reset">Media center</a>
+                            </p>
+                            <p>
+                            <a href="https://www.commercebank.com/about-us/awards" class="text-reset">Awards & Recognitions</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+                
+                        <!-- Grid column -->
+                        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4" style="padding-bottom: 7px;border-bottom: 5px solid #78be20;">
+                            Careers
+                            </h6>
+                            <p>
+                            <a href="https://careers.commercebank.com/us/en/" class="text-reset">Career Overview</a>
+                            </p>
+                            <p>
+                            <a href="https://careers.commercebank.com/us/en/our-hiring-process" class="text-reset">How to join out Team</a>
+                            </p>
+                            <p>
+                            <a href="https://careers.commercebank.com/us/en/our-hiring-process" class="text-reset">Our hiring Process</a>
+                            </p>
+                            <p>
+                            <a href="https://careers.commercebank.com/us/en/our-culture" class="text-reset">Why commerce</a>
+                            </p>
+                            <p>
+                            <a href="https://careers.commercebank.com/us/en/search-results" class="text-reset">Search All jobs</a>
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+                
+                        <!-- Grid column -->
+                        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                            <!-- Links -->
+                            <h6 class="text-uppercase fw-bold mb-4" style="padding-bottom: 7px;border-bottom: 5px solid #78be20;">Security Center</h6>
+                            <p><a href="https://www.commercebank.com/security-center" class="text-reset">Security Overview</a></p>
+                            <p>
+                            <a href="https://www.commercebank.com/security-center/privacy-statement" class="text-reset">Privacy Statement</a>
+                            </p>
+                            <p> <a href="https://www.commercebank.com/security-center/identity-theft-and-fraud" class="text-reset">Identity Theft & Fraud</a></p>
+                            <p> <a href="https://www.commercebank.com/security-center/security-practices" class="text-reset">Security Practices</a></p>
+                            <p> <a href="https://www.commercebank.com/security-center/cardholder-security" class="text-reset">Cardholder Security</a></p>
+                        </div>
+                        <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                    </section>
+                    <!-- Section: Links  -->
+                
+                    <!-- Copyright -->
+                    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    © 2023 Copyright:
+                    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Commerce Bancshares, Inc. All rights reserved. Commerce Bank, Member FDIC.</a>
+                    </div>
+                    <!-- Copyright -->
+                </footer>
+                <!-- Footer -->
+        </div>
+    </div>
+    </div>
+</body>
+
+<script>
+    // Handle form submission
+  const handleSubmit=()=>{
+    event.preventDefault();
+    document.getElementById("reg-btn").disabled=true;
+    document.getElementById("reg-btn").innerHTML="Logging in...";
+    const email=document.getElementById("email").value;
+    const password=document.getElementById("password").value;
+
+    const url = 'http://localhost:4000/api/login';
+
+    const data = {
+      email: email,
+      password: password,
+    };
+
+    const requestBody = JSON.stringify(data);
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+
+    fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: requestBody,
+    })
+      .then(response => response.json())
+      .then(data => {
+        if(data.message=="sesh"){
+          setCookie("Sesh_name",data.sesh_n,2);
+          setCookie("Sesh_uuid",data.sesh_u,2);
+          window.location.href="/Dashboard.html";
+        }
+        else if(data.message=="invalid"){
+            document.getElementById("reg-btn").disabled=false;
+            document.getElementById("reg-btn").innerHTML="Login";
+            document.getElementById("message").style.display="block";
+            document.getElementById("message").innerHTML="INVALID LOGIN DETAILS";
+            document.getElementById("message").style.color="red";
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
+
+  // Set cookies values
+  function setCookie(name, value, daysToExpire) {
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + daysToExpire);
+    const cookieValue = `${name}=${value}; expires=${expirationDate.toUTCString()}; path=/`;
+    document.cookie = cookieValue;
+  }
+</script>
+</html>
